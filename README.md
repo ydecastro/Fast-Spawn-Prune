@@ -74,7 +74,7 @@ If you use this code in academic work, please cite the paper:
 @article{decastro2026fastpart2,
   title  = {Birth-Death Stochastic Conic Particle Gradient Descent for global optimization on the space of measures},
   author = {De Castro, Yohann and Gadat, S{\'e}bastien and Marteau, Cl{\'e}ment},
-  journal= {Journal of Machine Learning Research},
+  journal= {arXiv},
   year   = {2026},
   note   = {Submitted}
 }
