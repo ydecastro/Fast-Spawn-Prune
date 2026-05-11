@@ -3,7 +3,7 @@
 Companion Jupyter notebooks for the numerical experiments of Section 4 of
 
 > **Birth-Death Stochastic Conic Particle Gradient Descent for global optimization on the space of measures**
-> Yohann De Castro, Sébastien Gadat, Clément Marteau (2026, JMLR submission).
+> Yohann De Castro, Sébastien Gadat, Clément Marteau (2026, arXiv submission).
 
 This repository contains everything needed to reproduce — qualitatively at a low budget, or exactly at the paper budget — the two numerical experiments of Section 4: density estimation on a 2D Gaussian Mixture Model and a two-layer ReLU regression on California Housing.
 
@@ -27,25 +27,10 @@ Open [`section4_companion.ipynb`](section4_companion.ipynb) and run all cells. T
 
 | Notebook | Purpose | Budget |
 |---|---|---|
-| **[`section4_companion.ipynb`](section4_companion.ipynb)** | One-stop companion to **Section 4 of the paper**. Mirrors §4.1, §4.2 and §4.3 with explicit `main_jmlr.tex` line cross-references, runs a light-budget demo, and displays the paper's exact figures and tables. | ~2-3 min |
+| **[`section4_companion.ipynb`](section4_companion.ipynb)** | One-stop companion to **Section 4 of the paper**. Mirrors §4.1, §4.2 and §4.3 with cross-references, runs a light-budget demo, and displays the paper's exact figures and tables. | ~2-3 min |
 | [`experiments_fastpart_gmm_fixed_covariance.ipynb`](experiments_fastpart_gmm_fixed_covariance.ipynb) | Full-budget GMM experiment of §4.1. Generates the saved `results_gmm_fixed_cov_*` directories. | ~10-20 min |
 | [`big_experiment_fastpart_gmm_fixed_covariance.ipynb`](big_experiment_fastpart_gmm_fixed_covariance.ipynb) | Long-running GMM variant ($T_{\mathrm{sto}}=10^{6}$, $K=25$, $R=30$). | hours |
 | [`experiments_fastpart_nn_california.ipynb`](experiments_fastpart_nn_california.ipynb) | Full-budget California-Housing experiment of §4.2. Generates the saved `results_nn_california_*` directories. | ~30-60 min |
-
-## Section 4 cross-references inside `section4_companion.ipynb`
-
-Each markdown cell of the companion notebook flags the corresponding line range in `main_jmlr.tex`:
-
-| Section | `main_jmlr.tex` |
-|---|---|
-| §4 — Numerical experiments | line 1173 |
-| §4.1 — GMM with fixed covariance | line 1179 |
-| §4.2 — Two-layer NN on California Housing | line 1200 |
-| §4.3 — Experimental Results and Discussion | line 1227 |
-| §4.3.1 — Dynamics of the Birth-Death process | line 1237 |
-| §4.3.2 — Convergence and generalisation | line 1258 |
-| §4.3.3 — Spatial distribution of GMM particles | line 1274 |
-| §4.3.4 — Performance Analysis and Experimental Parameters | line 1321 |
 
 ## Reproducing the paper figures and tables
 
