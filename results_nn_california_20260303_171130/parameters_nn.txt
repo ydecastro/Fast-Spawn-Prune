@@ -1,0 +1,65 @@
+======================================================================
+EXPERIMENT PARAMETERS — experiments_fastpart_nn_california
+Generated: 2026-03-03T17:11:33.546340
+======================================================================
+
+-- Dataset -----------------------------------------------------
+Dataset             : California Housing
+Total samples       : 20640
+Input dimension (d) : 8
+Train samples       : 18576
+Test  samples       : 2064
+Train/test split    : 90/10  (random_state=314)
+Feature scaling     : StandardScaler (zero mean, unit variance)
+
+-- Architecture ------------------------------------------------
+Model               : Two-layer ReLU network (BLASSO / CPGD)
+Feature map         : phi_theta(x) = ReLU(<w,x> + b),  theta=(w,b) in R^9
+theta dimension     : 9  (= d+1, affine neurons)
+Initial # particles : 300
+Position constraint : unit ball in R^9
+Random seed         : 314
+
+-- Regularisation ----------------------------------------------
+kappa (TV reg.)     : 0.0005
+
+-- Optimiser - common ------------------------------------------
+eta  (positions)    : 0.01
+eta_w (weights)     : 0.1
+Log interval        : 500
+
+-- Optimiser - Stochastic CPGD ----------------------------------
+Batch size          : 256
+Iterations          : 750000
+
+-- Optimiser - Full-Batch CPGD ----------------------------------
+Batch size          : 18576  (full dataset)
+Iterations          : 100000
+
+-- Birth-Death - Full-Batch -------------------------------------
+Death delay         : 5000 steps
+Death every         : 500 steps
+Birth delay         : 2500 steps
+Birth every         : 1000 steps
+N test points       : 1000
+tau_death           : 5
+tau_birth (factor)  : -1
+Birth threshold     : -0.06901026  = -1 * sqrt(9 * log(18576) / 18576)
+
+-- Birth-Death - Stochastic -------------------------------------
+Death delay         : 25000 steps
+Death every         : 1000 steps
+Birth delay         : 10000 steps
+Birth every         : 25000 steps
+N test points       : 1000
+tau_death           : 5
+tau_birth (factor)  : 2
+Birth threshold     : 0.88305752  = 2 * sqrt(9 * log(256) / 256)
+
+-- Final Results -----------------------------------------------
+Method                               Loss   MSE(train)    MSE(test)         TV   p_final    Time(s)  Deaths  Births
+-------------------------------------------------------------------------------------------------------------------
+Stochastic (std)                 0.190592     0.366231     0.393154    14.9533       300      265.1       0       0
+Full-batch (std)                 0.190220     0.365476     0.393433    14.9645       300      892.2       0       0
+Stochastic+BD                    0.190727     0.366369     0.392429    15.0839        60      158.9     269      29
+Full-batch+BD                    0.190212     0.365506     0.393495    14.9179       189      644.0     111       0

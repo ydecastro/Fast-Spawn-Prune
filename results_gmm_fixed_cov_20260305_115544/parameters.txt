@@ -1,0 +1,61 @@
+======================================================================
+EXPERIMENT PARAMETERS — experiments_fastpart_gmm_fixed_covariance
+Generated: 2026-03-05T11:55:50.709362
+======================================================================
+
+-- Dataset -----------------------------------------------------
+Dataset             : 2D Gaussian Mixture Model (fixed identity covariance)
+True components (K) : 25
+Circle radius (R)   : 30
+Total samples (n)   : 100000
+Train samples       : 80000
+Test  samples       : 20000
+Train/test split    : 80/20  (random_state=0)
+Dirichlet conc.     : 1.0
+Random seed (data)  : 42
+
+-- BLASSO Problem ----------------------------------------------
+tau (bandwidth)     : 0.01
+kappa (TV reg.)     : 1e-08
+
+-- Optimiser - common ------------------------------------------
+eta  (positions)    : 5
+eta_w (weights)     : 0.1
+Initial particles p : 25
+Log interval        : 200
+
+-- Optimiser - Full-Batch CPGD ----------------------------------
+Batch size          : 80000  (full dataset)
+Iterations          : 100000
+
+-- Optimiser - Stochastic CPGD ----------------------------------
+Batch size          : 1024
+Iterations          : 1000000
+
+-- Birth-Death - Full-Batch -------------------------------------
+Death delay         : 5000 steps
+Death every         : 2000 steps
+Birth delay         : 20000 steps
+Birth every         : 3000 steps
+N test points       : 1000
+tau_death           : 2.0
+tau_birth (factor)  : -1
+Birth threshold     : -0.00000001  = -1 * sqrt(2*log(80000) / 80000)
+
+-- Birth-Death - Stochastic -------------------------------------
+Death delay         : 20000 steps
+Death every         : 10000 steps
+Birth delay         : 100000 steps
+Birth every         : 20000 steps
+N test points       : 1000
+tau_death           : 2.0
+tau_birth (factor)  : 5
+Birth threshold     : 11.63530441  = 5 * sqrt(2*log(1024) / 1024)
+
+-- Final Results -----------------------------------------------
+Method                         Loss     Prox(tr)     Prox(te)       TV  p_final    Time(s)  Deaths  Births
+-------------------------------------------------------------------------------------------------------
+Full-batch                 0.042546     0.042546     0.042952   0.2588       25    1667.99       0       0
+Stochastic                 0.042484     0.042484     0.042885   0.2983       25    1084.89       0       0
+Full-batch+BD              0.039660     0.039660     0.040057   1.0015       25    1020.60      20      20
+Stochastic+BD              0.039660     0.039660     0.040057   1.0058       33     978.39      33      41
